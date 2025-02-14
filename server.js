@@ -99,12 +99,10 @@ const entranceMessages = [
 ];
 
 function fillWithBots() {
-    function randomJoeHendryMoment() {
-    setTimeout(() => {
-        sendChat("🎵 Die Menge beginnt zu chanten... **I BELIEVE IN JOE HENDRY!** 🎵");
-        setTimeout(() => {
-            sendChat("**Joe Hendry** erscheint plötzlich auf der Rampe, bereit für den Kampf!");
-            participants["Joe Hendry"] = { hp: 100 };
+    ;
+        }
+    }, Math.random() * 90000 + 60000); // Einmal pro Match nach 1-2.5 Minuten
+};
         }, 5000);
     }, Math.random() * 90000 + 60000); // Einmal pro Match nach 1-2.5 Minuten
 };
