@@ -112,6 +112,6 @@ app.post("/sendChat", (req, res) => {
     let message = req.body.message;
     console.log("Empfangene Nachricht:", message);
     res.send("OK");
-}););
+});
 
 app.listen(port, () => console.log(`✅ Server läuft auf Port ${port}`));
