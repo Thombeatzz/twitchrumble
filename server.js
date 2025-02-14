@@ -6,7 +6,7 @@ app.use(express.json());
 
 const participants = {};
 const userSignatures = {};
-const userFinishers = {};;
+const userFinishers = {}; // Entferne das doppelte Semikolon
 const botWrestlers = [
     "Roman Reigns", "Cody Rhodes", "Seth Rollins", "Brock Lesnar", "Drew McIntyre",
     "Bobby Lashley", "Gunther", "Randy Orton", "Kevin Owens", "Sami Zayn",
@@ -109,15 +109,16 @@ function fillWithBots() {
     }, Math.random() * 90000 + 60000); // Einmal pro Match nach 1-2.5 Minuten;
             }, 5000);
         }
-        setTimeout(randomJoeHendryMoment, Math.random() * 180000 + 60000); // Zwischen 1-4 Minuten erneut auslösen
+         // Zwischen 1-4 Minuten erneut auslösen
     }
 
-    randomJoeHendryMoment();
+    
     let entryIndex = 1;
 let totalEntrances = 0;
     function addNextBot() {
         if (Object.keys(participants).length >= 30 || botWrestlers.length === 0) return;
 
+        if (botWrestlers.length === 0) return;
         let bot = botWrestlers.splice(Math.floor(Math.random() * botWrestlers.length), 1)[0];
         participants[bot] = { hp: 100 };
         let message = `#${totalEntrances + 1} **${bot}**${entranceMessages[Math.floor(Math.random() * entranceMessages.length)]}`;
@@ -129,9 +130,6 @@ let totalEntrances = 0;
     }
 
     addNextBot();
-        let bot = botWrestlers.splice(Math.floor(Math.random() * botWrestlers.length), 1)[0];
-        participants[bot] = { hp: 100 };
-        sendChat(` **${bot}** betritt den Ring! Die Menge tobt!`);
     }
 }
 
@@ -169,7 +167,7 @@ function rumbleRound() {
         move = moves[Math.floor(Math.random() * moves.length)];
         damage = Math.floor(Math.random() * 30) + 10;
     }
-    let damage = Math.floor(Math.random() * 30) + 10;
+    let damage;
     participants[defender].hp -= damage;
     
     sendChat(` **${attacker}** setzt einen **${move}** gegen **${defender}** ein! (-${damage} HP) `);
