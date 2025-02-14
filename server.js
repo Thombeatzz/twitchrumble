@@ -84,7 +84,7 @@ function rumbleRound() {
 }
 
 function sendChat(message) {
-    fetch("https://twitch-rumble-production.up.railway.app", {
+    fetch("https://dein-twitch-rumble.railway.app/sendChat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message })
@@ -98,10 +98,20 @@ app.get("/", (req, res) => {
     res.send("🚀 Twitch Rumble Server läuft!");
 });
 
-app.post("/sendChat", (req, res) => {
-    let message = req.body.message;
+app.get("/sendChat", (req, res) => {
+    let message = req.query.message || "Fehlende Nachricht";
     console.log("Empfangene Nachricht:", message);
     res.send("OK");
 });
+
+app.post("/sendChat", (req, res) => {
+    if (!req.body || !req.body.message) {
+        return res.status(400).send("Fehlende Nachricht");
+    }
+    
+    let message = req.body.message;
+    console.log("Empfangene Nachricht:", message);
+    res.send("OK");
+}););
 
 app.listen(port, () => console.log(`✅ Server läuft auf Port ${port}`));
