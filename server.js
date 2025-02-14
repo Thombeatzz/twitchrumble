@@ -101,7 +101,7 @@ app.get("/", (req, res) => {
 app.get("/sendChat", (req, res) => {
     let message = req.query.message || "Fehlende Nachricht";
     console.log("Empfangene Nachricht:", message);
-    res.send(message);
+    res.send(decodeURIComponent(message));
 });
 
 app.post("/sendChat", (req, res) => {
