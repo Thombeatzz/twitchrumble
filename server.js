@@ -114,12 +114,14 @@ function fillWithBots() {
 
     randomJoeHendryMoment();
     let entryIndex = 1;
+let totalEntrances = 0;
     function addNextBot() {
         if (Object.keys(participants).length >= 30 || botWrestlers.length === 0) return;
 
         let bot = botWrestlers.splice(Math.floor(Math.random() * botWrestlers.length), 1)[0];
         participants[bot] = { hp: 100 };
-        let message = ` **${bot}**${entranceMessages[Math.floor(Math.random() * entranceMessages.length)]}`;
+        let message = `#${totalEntrances + 1} **${bot}**${entranceMessages[Math.floor(Math.random() * entranceMessages.length)]}`;
+        totalEntrances++;
         sendChat(message);
 
         entryIndex++;
