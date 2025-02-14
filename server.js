@@ -84,7 +84,14 @@ function rumbleRound() {
 }
 
 function sendChat(message) {
-    console.log(message);
+    fetch("https://twitch-rumble-production.up.railway.app/sendChat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message })
+    })
+    .then(response => response.text())
+    .then(data => console.log("Server Response:", data))
+    .catch(error => console.error("Fehler beim Senden der Nachricht:", error));
 }
 
 app.get("/", (req, res) => {
