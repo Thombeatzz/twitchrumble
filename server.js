@@ -84,7 +84,7 @@ function rumbleRound() {
 }
 
 function sendChat(message) {
-    fetch("https://dein-twitch-rumble.railway.app/sendChat", {
+    fetch("https://twitch-rumble-production.up.railway.app/sendChat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message })
