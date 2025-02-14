@@ -106,8 +106,11 @@ function fillWithBots() {
             sendChat("**Joe Hendry** erscheint plötzlich auf der Rampe, bereit für den Kampf!");
             participants["Joe Hendry"] = { hp: 100 };
         }, 5000);
-    }, Math.random() * 90000 + 60000); // Einmal pro Match nach 1-2.5 Minuten;
-            }, 5000);
+    }, Math.random() * 90000 + 60000); // Einmal pro Match nach 1-2.5 Minuten
+};
+        }
+    }, Math.random() * 90000 + 60000); // Einmal pro Match nach 1-2.5 Minuten
+            }
         }
          // Zwischen 1-4 Minuten erneut auslösen
     }
@@ -118,7 +121,7 @@ let totalEntrances = 0;
     function addNextBot() {
         if (Object.keys(participants).length >= 30 || botWrestlers.length === 0) return;
 
-        if (botWrestlers.length === 0) return;
+        
         let bot = botWrestlers.splice(Math.floor(Math.random() * botWrestlers.length), 1)[0];
         participants[bot] = { hp: 100 };
         let message = `#${totalEntrances + 1} **${bot}**${entranceMessages[Math.floor(Math.random() * entranceMessages.length)]}`;
@@ -159,15 +162,15 @@ function rumbleRound() {
     let move;
     if (Math.random() < finisherChance) {
         move = userFinishers[attacker] || "Finishing Move";
-        damage = Math.floor(Math.random() * 40) + 60; // 60-100 Schaden
+        let damage = Math.floor(Math.random() * 40) + 60; // 60-100 Schaden
     } else if (Math.random() < signatureChance) {
         move = userSignatures[attacker] || "Signature Move";
-        damage = Math.floor(Math.random() * 20) + 40; // 40-60 Schaden
+        let damage = Math.floor(Math.random() * 20) + 40; // 40-60 Schaden
     } else {
         move = moves[Math.floor(Math.random() * moves.length)];
-        damage = Math.floor(Math.random() * 30) + 10;
+        let damage = Math.floor(Math.random() * 30) + 10;
     }
-    let damage;
+    
     participants[defender].hp -= damage;
     
     sendChat(` **${attacker}** setzt einen **${move}** gegen **${defender}** ein! (-${damage} HP) `);
