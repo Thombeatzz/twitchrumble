@@ -99,18 +99,6 @@ const entranceMessages = [
 ];
 
 function fillWithBots() {
-    ;
-        }
-    }, Math.random() * 90000 + 60000); // Einmal pro Match nach 1-2.5 Minuten
-};
-        }, 5000);
-    }, Math.random() * 90000 + 60000); // Einmal pro Match nach 1-2.5 Minuten
-};
-            }, 5000);
-        }, Math.random() * 90000 + 60000); // Einmal pro Match nach 1-2.5 Minuten
-    }
-
-    randomJoeHendryMoment();
 
     let entryIndex = 1;
     let totalEntrances = 0;
