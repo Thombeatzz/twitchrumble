@@ -107,6 +107,10 @@ function fillWithBots() {
             participants["Joe Hendry"] = { hp: 100 };
         }, 5000);
     }, Math.random() * 90000 + 60000); // Einmal pro Match nach 1-2.5 Minuten
+}
+}
+        }, 5000);
+    }, Math.random() * 90000 + 60000); // Einmal pro Match nach 1-2.5 Minuten
 };
         }
     }, Math.random() * 90000 + 60000); // Einmal pro Match nach 1-2.5 Minuten
@@ -162,13 +166,13 @@ function rumbleRound() {
     let move;
     if (Math.random() < finisherChance) {
         move = userFinishers[attacker] || "Finishing Move";
-        let damage = Math.floor(Math.random() * 40) + 60; // 60-100 Schaden
+        damage = Math.floor(Math.random() * 40) + 60; // 60-100 Schaden
     } else if (Math.random() < signatureChance) {
         move = userSignatures[attacker] || "Signature Move";
-        let damage = Math.floor(Math.random() * 20) + 40; // 40-60 Schaden
+        damage = Math.floor(Math.random() * 20) + 40; // 40-60 Schaden
     } else {
         move = moves[Math.floor(Math.random() * moves.length)];
-        let damage = Math.floor(Math.random() * 30) + 10;
+        damage = Math.floor(Math.random() * 30) + 10;
     }
     
     participants[defender].hp -= damage;
