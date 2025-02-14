@@ -116,22 +116,6 @@ function fillWithBots() {
     }
 
     addNextBot();
-};
-        }, 5000);
-    }, Math.random() * 90000 + 60000); // Einmal pro Match nach 1-2.5 Minuten
-}
-}
-        }, 5000);
-    }, Math.random() * 90000 + 60000); // Einmal pro Match nach 1-2.5 Minuten
-};
-        }
-    }, Math.random() * 90000 + 60000); // Einmal pro Match nach 1-2.5 Minuten
-            }
-        }
-         // Zwischen 1-4 Minuten erneut auslösen
-    }
-
-    
     let entryIndex = 1;
 let totalEntrances = 0;
     function addNextBot() {
