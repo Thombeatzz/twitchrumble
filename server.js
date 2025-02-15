@@ -136,7 +136,7 @@ function fillWithBots() {
         entryIndex++;
         setTimeout(addNextBot, 30000); // Alle 30 Sekunden neuer Kämpfer
     } // <- Geschlossene } für addNextBot
-    }
+    
 
 function beginFight() {
     console.log("⚡ Der Rumble beginnt jetzt!");
