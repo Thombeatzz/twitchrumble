@@ -90,9 +90,15 @@ function sendChat(message) {
         body: JSON.stringify({ message })
     })
     .then(response => response.text())
-    .then(data => console.log("Server Response:", data))
+    .then(data => {
+        console.log("Server Response:", data);
+        if (data !== "OK") {
+            console.error("Fehlerhafte Antwort vom Server:", data);
+        }
+    })
     .catch(error => console.error("Fehler beim Senden der Nachricht:", error));
 }
+
 
 app.get("/", (req, res) => {
     res.send("🚀 Twitch Rumble Server läuft!");
