@@ -45,22 +45,20 @@ const moves = [
     "High Knee Strike", "Exploder Suplex", "Overhead Belly-to-Belly Suplex", "Swinging Neckbreaker",
     "Fisherman Suplex", "Half Nelson Suplex", "Full Nelson Slam", "Emerald Flowsion", "Diving Headbutt"
 ];
-let gameActive = true;
+let gameActive = false;
 let champion = "Kein Champion";
 let history = [];
 
 function startRumble() {
-    if (gameActive) return sendChat("❌ Ein Rumble läuft bereits!");
+    console.log("📢 startRumble() wurde aufgerufen!");
+    if (gameActive) return sendChat(" Ein Rumble läuft bereits!");
     gameActive = true;
     Object.keys(participants).forEach(key => delete participants[key]);
-
-    sendChat("🔥 **Der Rumble ist gestartet!** 🔥 Wer wird der nächste King of the Chat Champion? **60 Sekunden zum Eintragen!** Gib !rumble ein, um teilzunehmen!");
-
+    sendChat(" **Der Rumble ist gestartet!**  Wer wird der nächste King of the Chat Champion? **60 Sekunden zum Eintragen!** Gib !rumble ein, um teilzunehmen!");
     setTimeout(() => {
         console.log("⏳ 40 Sekunden vergangen - Fülle mit Bots");
         fillWithBots();
     }, 40000);
-
     setTimeout(() => {
         console.log("🚀 60 Sekunden vergangen - Starte den Rumble");
         beginFight();
@@ -74,9 +72,15 @@ app.get("/joinRumble", (req, res) => {
     if (!gameActive) return res.send("❌ Kein aktiver Rumble!");
     if (participants[user]) return res.send("❌ Du bist bereits dabei!");
 
-    participants[user] = { hp: 100 }; // 🛠 Jetzt innerhalb der Funktion
+    
     res.send(`💪 **${user}** sprintet zum Ring! Das Publikum rastet aus!`);
 });
+    
+    
+    
+    participants[user] = { hp: 100 };
+    
+
 
 const entranceMessages = [
     " sprintet zum Ring und reißt die Arme in die Luft – das Publikum rastet aus!",
@@ -130,11 +134,13 @@ function fillWithBots() {
     }
 
 function beginFight() {
+    console.log("⚡ Der Rumble beginnt jetzt!");
     sendChat(" **Der Rumble beginnt!** Alle Kämpfer stehen bereit!  *Bell rings* ");
     rumbleRound();
 }
 
 function rumbleRound() {
+    console.log("🔥 Nächste Kampfrunde beginnt!");
     const finisherChance = 0.1; // 10% Wahrscheinlichkeit für Finisher
     const signatureChance = 0.2; // 20% Wahrscheinlichkeit für Signature
 
