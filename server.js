@@ -107,7 +107,7 @@ app.get("/", (req, res) => {
 app.get("/sendChat", (req, res) => {
     let message = req.query.message || "Fehlende Nachricht";
     console.log("Empfangene Nachricht:", message);
-    res.send("OK");
+    res.send("Der Rumble beginnt! Tippe !rumble, um beizutreten!");
 });
 
 app.post("/sendChat", (req, res) => {
