@@ -158,10 +158,7 @@ function rumbleRound() {
     if (Math.random() < finisherChance) {
     move = userFinishers[attacker] || "Finishing Move";
     damage = Math.floor(Math.random() * 40) + 60; // 60-100 Schaden
-} else if (Math.random() < signatureChance) {
-    move = userSignatures[attacker] || "Signature Move";
-    damage = Math.floor(Math.random() * 20) + 40; // 40-60 Schaden
-} else {
+}  else {
     move = moves[Math.floor(Math.random() * moves.length)];
     damage = Math.floor(Math.random() * 30) + 10;
 } else if (Math.random() < signatureChance) {
