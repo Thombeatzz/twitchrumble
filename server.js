@@ -28,7 +28,6 @@ app.get("/startRumble", (req, res) => {
     Object.keys(participants).forEach(key => delete participants[key]);
     console.log("🔥 Der Rumble ist gestartet!");
     setTimeout(beginFight, 5000);
-}
 
 app.get("/joinRumble", (req, res) => {
     let user = req.query.user;
