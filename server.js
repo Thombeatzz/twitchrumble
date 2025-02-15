@@ -50,12 +50,21 @@ let champion = "Kein Champion";
 let history = [];
 
 function startRumble() {
-    if (gameActive) return sendChat(" Ein Rumble läuft bereits!");
+    if (gameActive) return sendChat("❌ Ein Rumble läuft bereits!");
     gameActive = true;
     Object.keys(participants).forEach(key => delete participants[key]);
-    sendChat(" **Der Rumble ist gestartet!**  Wer wird der nächste King of the Chat Champion? **60 Sekunden zum Eintragen!** Gib !rumble ein, um teilzunehmen!");
-    setTimeout(fillWithBots, 40000);
-    setTimeout(beginFight, 60000);
+
+    sendChat("🔥 **Der Rumble ist gestartet!** 🔥 Wer wird der nächste King of the Chat Champion? **60 Sekunden zum Eintragen!** Gib !rumble ein, um teilzunehmen!");
+
+    setTimeout(() => {
+        console.log("⏳ 40 Sekunden vergangen - Fülle mit Bots");
+        fillWithBots();
+    }, 40000);
+
+    setTimeout(() => {
+        console.log("🚀 60 Sekunden vergangen - Starte den Rumble");
+        beginFight();
+    }, 60000);
 }
 
 app.get("/joinRumble", (req, res) => {
