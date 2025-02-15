@@ -120,9 +120,7 @@ function fillWithBots() {
     }
     addNextBot(); // Starte das Einfügen von Bots
 }
-    if (typeof entryIndex === 'undefined') {
-        let entryIndex = 1;
-    }
+    
 
     
     let totalEntrances = 0;
@@ -166,6 +164,7 @@ function rumbleRound() {
     let defender = players.filter(p => p !== attacker)[Math.floor(Math.random() * (players.length - 1))];
     
     let move;
+    let damage = 0;
     if (Math.random() < finisherChance) {
         move = userFinishers[attacker] || "Finishing Move";
         let damage = Math.floor(Math.random() * 40) + 60; // 60-100 Schaden
