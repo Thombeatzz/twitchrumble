@@ -75,12 +75,6 @@ app.get("/joinRumble", (req, res) => {
     
     res.send(`💪 **${user}** sprintet zum Ring! Das Publikum rastet aus!`);
 });
-    
-    
-    
-    participants[user] = { hp: 100 };
-    
-
 
 const entranceMessages = [
     " sprintet zum Ring und reißt die Arme in die Luft – das Publikum rastet aus!",
