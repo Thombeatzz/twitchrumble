@@ -15,7 +15,14 @@ const moves = [
 let gameActive = false;
 let champion = "Kein Champion";
 
-function startRumble() {
+app.get("/startRumble", (req, res) => {
+    if (gameActive) return res.send("❌ Ein Rumble läuft bereits!");
+    gameActive = true;
+    Object.keys(participants).forEach(key => delete participants[key]);
+    console.log("🔥 Der Rumble ist gestartet!");
+    res.send("🔥 Der Rumble ist gestartet! Tippe !rumble, um beizutreten!");
+    setTimeout(beginFight, 5000);
+});
     if (gameActive) return;
     gameActive = true;
     Object.keys(participants).forEach(key => delete participants[key]);
