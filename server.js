@@ -112,10 +112,7 @@ function fillWithBots() {
         setTimeout(addNextBot, 30000); // Alle 30 Sekunden neuer Kämpfer
     }
     addNextBot(); // Starte das Einfügen von Bots
-}
-    
 
-    
     let totalEntrances = 0;
     function addNextBot() {
         if (Object.keys(participants).length >= 30 || botWrestlers.length === 0) return;
