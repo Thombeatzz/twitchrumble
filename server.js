@@ -106,9 +106,20 @@ const entranceMessages = [
 ];
 
 function fillWithBots() {
-    if (typeof entryIndex === 'undefined') {
-        let entryIndex = 1;
+    let totalEntrances = 0;
+    function addNextBot() {
+        if (Object.keys(participants).length >= 30 || botWrestlers.length === 0) return;
+        
+        let bot = botWrestlers.splice(Math.floor(Math.random() * botWrestlers.length), 1)[0];
+        participants[bot] = { hp: 100 };
+        let message = `#${totalEntrances + 1} **${bot}**${entranceMessages[Math.floor(Math.random() * entranceMessages.length)]}`;
+        totalEntrances++;
+        sendChat(message);
+        
+        setTimeout(addNextBot, 30000); // Alle 30 Sekunden neuer Kämpfer
     }
+    addNextBot(); // Starte das Einfügen von Bots
+}
     if (typeof entryIndex === 'undefined') {
         let entryIndex = 1;
     }
