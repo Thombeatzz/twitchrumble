@@ -65,14 +65,14 @@ app.get("/joinRumble", (req, res) => {
     if (!gameActive) return res.send("❌ Kein aktiver Rumble!");
     if (participants[user]) return res.send("❌ Du bist bereits dabei!");
 
-    participants[user] = { hp: 100 };
+    
     res.send(`💪 **${user}** sprintet zum Ring! Das Publikum rastet aus!`);
 });
     
-    if (!gameActive) return sendChat(" Kein aktiver Rumble!");
-    if (participants[user]) return sendChat(" Du bist bereits dabei!");
+    
+    
     participants[user] = { hp: 100 };
-    sendChat(` **${user}** sprintet zum Ring! Das Publikum rastet aus!`);
+    
 
 
 const entranceMessages = [
@@ -106,6 +106,9 @@ function fillWithBots() {
     if (typeof entryIndex === 'undefined') {
         let entryIndex = 1;
     }
+    if (typeof entryIndex === 'undefined') {
+        let entryIndex = 1;
+    }
 
     
     let totalEntrances = 0;
@@ -120,6 +123,7 @@ function fillWithBots() {
         
         entryIndex++;
         setTimeout(addNextBot, 30000); // Alle 30 Sekunden neuer Kämpfer
+    } // <- Geschlossene } für addNextBot
     }
 
 function beginFight() {
