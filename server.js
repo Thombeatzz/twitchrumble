@@ -45,7 +45,7 @@ const moves = [
     "High Knee Strike", "Exploder Suplex", "Overhead Belly-to-Belly Suplex", "Swinging Neckbreaker",
     "Fisherman Suplex", "Half Nelson Suplex", "Full Nelson Slam", "Emerald Flowsion", "Diving Headbutt"
 ];
-let gameActive = false;
+let gameActive = true;
 let champion = "Kein Champion";
 let history = [];
 
