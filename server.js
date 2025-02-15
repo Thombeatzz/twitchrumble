@@ -106,8 +106,16 @@ app.get("/", (req, res) => {
 
 app.get("/sendChat", (req, res) => {
     let message = req.query.message || "Fehlende Nachricht";
-    message = decodeURIComponent(message); // Dekodiert URL-kodierte Zeichen
+    
+    // Ersetzt "+" durch Leerzeichen (falls nötig)
+    message = message.replace(/\+/g, " ");
+    
+    // Dekodiert %20 und andere URL-kodierte Zeichen
+    message = decodeURIComponent(message);
+    
     console.log("Empfangene Nachricht:", message);
+
+    res.setHeader("Content-Type", "text/plain"); // Antwort als reinen Text senden
     res.send(message);
 });
 
