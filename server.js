@@ -73,7 +73,7 @@ app.get("/joinRumble", (req, res) => {
     if (participants[user]) return sendChat(" Du bist bereits dabei!");
     participants[user] = { hp: 100 };
     sendChat(` **${user}** sprintet zum Ring! Das Publikum rastet aus!`);
-}
+
 
 const entranceMessages = [
     " sprintet zum Ring und reißt die Arme in die Luft – das Publikum rastet aus!",
