@@ -116,7 +116,6 @@ function fillWithBots() {
     }
 
     addNextBot();
-    let entryIndex = 1;
 let totalEntrances = 0;
     function addNextBot() {
         if (Object.keys(participants).length >= 30 || botWrestlers.length === 0) return;
