@@ -68,9 +68,7 @@ app.get("/joinRumble", (req, res) => {
     participants[user] = { hp: 100 };
     res.send(`💪 **${user}** sprintet zum Ring! Das Publikum rastet aus!`);
 });
-    if (!userFinishers[user]) {
-        userFinishers[user] = moves[Math.floor(Math.random() * moves.length)];
-    }
+    
     if (!gameActive) return sendChat(" Kein aktiver Rumble!");
     if (participants[user]) return sendChat(" Du bist bereits dabei!");
     participants[user] = { hp: 100 };
@@ -109,7 +107,7 @@ function fillWithBots() {
         let entryIndex = 1;
     }
 
-    let entryIndex = 1; // Entferne doppelte Deklaration falls vorhanden
+    
     let totalEntrances = 0;
     function addNextBot() {
         if (Object.keys(participants).length >= 30 || botWrestlers.length === 0) return;
