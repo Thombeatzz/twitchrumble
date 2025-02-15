@@ -65,7 +65,7 @@ app.get("/joinRumble", (req, res) => {
     if (!gameActive) return res.send("❌ Kein aktiver Rumble!");
     if (participants[user]) return res.send("❌ Du bist bereits dabei!");
 
-    
+    participants[user] = { hp: 100 }; // 🛠 Jetzt innerhalb der Funktion
     res.send(`💪 **${user}** sprintet zum Ring! Das Publikum rastet aus!`);
 });
     
